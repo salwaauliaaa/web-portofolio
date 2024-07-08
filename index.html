@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Pribadi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo smk2.png" alt="Logo">
+        </div>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="hire-me">
+            <button>Hire Me</button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section id="home" class="home-section">
+            <div class="home-content">
+                <h1>HALLOO<br><span>Salwa Aulia Azzahra</span></h1>
+                <p>Saya kelas 12 dan baru belajar tentang programmer.</p>
+                <button>Learn more</button>
+            </div>
+            <div class="home-image">
+                <img src="salwa2.jpeg" alt="Your Photo">
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>About</h2>
+            <div class="experience-boxes">
+                <div class="experience-box">
+                    <h3>Pengalaman</h3>
+                    <p>Saat kelas 10 saya belajar mengenai html dan c# dan baru belajar mengenai basicnya.</p>
+                </div>
+                <div class="experience-box">
+                    <h3>Pengalaman</h3>
+                    <p>Saat kelas 11 saya mempelajari tentang database, php, dan sql dan juga diberi beberapa project untuk membuat CRUD, database dan website.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="content">
+                <h2>Portfolio</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="crud.jpg" alt="Project 1">
+                        <p>1. CRUD SEDERHANA</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="cafe.png" alt="Project 2">
+                        <p>2. WEB CAFE</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="sekolah.png" alt="Project 3">
+                        <p> 3. WEB SEKOLAH</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="content">
+                <h2>Contact Me</h2>
+                <form action="submit-form.php" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <p id="message-status"></p>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="social-media">
+                <a href="#"><img src="instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            </div>
+        </footer>
+
+        <script>
+            // Assuming submit-form.php returns a success message
+            document.querySelector('form').addEventListener('submit', async function(event) {
+                event.preventDefault();
+                let formData = new FormData(this);
+                let response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                if (response.ok) {
+                    document.getElementById('message-status').textContent = 'Oke, berhasil!';
+                } else {
+                    document.getElementById('message-status').textContent = 'Gagal mengirim pesan. Silakan coba lagi.';
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
